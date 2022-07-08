@@ -1,2 +1,2 @@
 # typescript-projects
-Projects to learn and practice using typescript 🤓
+Projects to practice using typescript 🤓
