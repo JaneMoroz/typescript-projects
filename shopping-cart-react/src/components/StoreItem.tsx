@@ -11,6 +11,7 @@ import {
 import { Add, Remove, Delete } from "@mui/icons-material";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { ShoppingCart } from "@mui/icons-material";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 const classes = {
   btns: {
@@ -42,8 +43,14 @@ type StoreItemProps = {
   imgUrl: string;
 };
 
-const StoreItem = ({ name, imgUrl, price }: StoreItemProps) => {
-  const quantity = 0;
+const StoreItem = ({ id, name, imgUrl, price }: StoreItemProps) => {
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCart();
+  const quantity = getItemQuantity(id);
   return (
     <Card>
       <CardMedia component="img" alt={name} height="240" src={imgUrl} />
@@ -58,6 +65,7 @@ const StoreItem = ({ name, imgUrl, price }: StoreItemProps) => {
       <CardActions>
         {quantity === 0 ? (
           <Button
+            onClick={() => increaseCartQuantity(id)}
             sx={{ width: "100%" }}
             variant="outlined"
             color="secondary"
@@ -68,15 +76,28 @@ const StoreItem = ({ name, imgUrl, price }: StoreItemProps) => {
         ) : (
           <>
             <div style={classes.btns}>
-              <IconButton size="large" color="secondary">
+              <IconButton
+                onClick={() => decreaseCartQuantity(id)}
+                size="large"
+                color="secondary"
+              >
                 <Remove />
               </IconButton>
-              <span style={classes.quantity}>1</span>
-              <IconButton size="large" color="secondary">
+              <span style={classes.quantity}>{quantity}</span>
+              <IconButton
+                onClick={() => increaseCartQuantity(id)}
+                size="large"
+                color="secondary"
+              >
                 <Add />
               </IconButton>
             </div>
-            <IconButton aria-label="delete" size="small" color="secondary">
+            <IconButton
+              onClick={() => removeFromCart(id)}
+              aria-label="delete"
+              size="small"
+              color="secondary"
+            >
               <Delete />
             </IconButton>
           </>

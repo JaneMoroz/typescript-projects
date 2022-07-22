@@ -2,6 +2,7 @@ import { AppBar, Toolbar, Button, IconButton, Badge } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ShoppingCartOutlined } from "@mui/icons-material";
 import React from "react";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 const classes = {
   active: {
@@ -14,6 +15,7 @@ const classes = {
 };
 
 const Navbar = () => {
+  const { openCart, cartQuantity } = useShoppingCart();
   const navigate = useNavigate();
   const location = useLocation();
   const navItems = [
@@ -45,8 +47,8 @@ const Navbar = () => {
             </Button>
           ))}
         </div>
-        <IconButton>
-          <Badge badgeContent={4} color="secondary">
+        <IconButton onClick={openCart}>
+          <Badge badgeContent={cartQuantity} color="secondary">
             <ShoppingCartOutlined aria-label="shopping cart" color="primary" />
           </Badge>
         </IconButton>
