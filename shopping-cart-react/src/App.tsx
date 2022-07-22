@@ -4,6 +4,7 @@ import { cyan, grey, pink } from "@mui/material/colors";
 import { Container } from "@mui/material";
 import { Home, Store, About } from "./pages";
 import { Navbar } from "./components";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 const theme = createTheme({
   palette: {
@@ -25,16 +26,18 @@ const theme = createTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Navbar />
-      <Container sx={{ marginBottom: "20px" }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </Container>
-    </ThemeProvider>
+    <ShoppingCartProvider>
+      <ThemeProvider theme={theme}>
+        <Navbar />
+        <Container sx={{ marginBottom: "20px" }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </Container>
+      </ThemeProvider>
+    </ShoppingCartProvider>
   );
 }
 
