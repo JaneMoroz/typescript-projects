@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Button, IconButton } from "@mui/material";
+import { AppBar, Toolbar, Button, IconButton, Badge } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ShoppingCartOutlined } from "@mui/icons-material";
 import React from "react";
@@ -32,7 +32,7 @@ const Navbar = () => {
   ];
 
   return (
-    <AppBar sx={{ background: "#eddada" }} component="nav" position="static">
+    <AppBar sx={{ background: "#eddada" }} component="nav" position="sticky">
       <Toolbar>
         <div style={classes.nav}>
           {navItems.map((item) => (
@@ -46,7 +46,9 @@ const Navbar = () => {
           ))}
         </div>
         <IconButton>
-          <ShoppingCartOutlined aria-label="shopping cart" color="primary" />
+          <Badge badgeContent={4} color="secondary">
+            <ShoppingCartOutlined aria-label="shopping cart" color="primary" />
+          </Badge>
         </IconButton>
       </Toolbar>
     </AppBar>

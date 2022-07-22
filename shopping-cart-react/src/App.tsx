@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { cyan, grey } from "@mui/material/colors";
+import { cyan, grey, pink } from "@mui/material/colors";
 import { Container } from "@mui/material";
 import { Home, Store, About } from "./pages";
 import { Navbar } from "./components";
@@ -8,9 +8,11 @@ import { Navbar } from "./components";
 const theme = createTheme({
   palette: {
     primary: {
-      main: grey[500],
+      main: grey[600],
     },
-    secondary: grey,
+    secondary: {
+      main: pink[900],
+    },
   },
   typography: {
     fontFamily: "Quicksand",
