@@ -3,24 +3,48 @@
     "id": 1,
     "name": "Book",
     "price": 10.99,
-    "imgUrl": "/imgs/book.jpeg"
+    "imgUrl": "/imgs/book.jpg"
   },
   {
     "id": 2,
     "name": "Laptop",
     "price": 259.99,
-    "imgUrl": "/imgs/laptop.jpeg"
+    "imgUrl": "/imgs/laptop.jpg"
   },
   {
     "id": 3,
     "name": "Car",
     "price": 9999.99,
-    "imgUrl": "/imgs/car.jpeg"
+    "imgUrl": "/imgs/car.jpg"
   },
   {
     "id": 4,
     "name": "Cassette",
     "price": 109.99,
-    "imgUrl": "/imgs/cassette.jpeg"
+    "imgUrl": "/imgs/cassette.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Camera",
+    "price": 69.99,
+    "imgUrl": "/imgs/camera.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Poster",
+    "price": 9.99,
+    "imgUrl": "/imgs/poster.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Typewriter",
+    "price": 349.99,
+    "imgUrl": "/imgs/typewriter.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Van",
+    "price": 6999.99,
+    "imgUrl": "/imgs/van.jpg"
   }
 ]
